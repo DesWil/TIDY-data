@@ -33,6 +33,14 @@
 > names(xtotal) <- sub("freq", "frequency", names(xtotal))
 > names(xtotal) <- sub("^f", "frequency", names(xtotal))
 > names(xtotal) <- gsub("-", " ", names(xtotal))
+
+> ##Question5 
+
+> Average <- xtotal  %>% group_by(activity, subject) %>% 
++   summarise_all(funs(mean))
+
+> write.table(Average, "tidydata.txt", row.name=FALSE)
+
 > names(xtotal) <- sub("acc", "acceleration", names(xtotal))
 > names(xtotal) <- sub("gyro", "angular velocity", names(xtotal))
 > names(xtotal) <- sub("std", "standard deviation", names(xtotal))
