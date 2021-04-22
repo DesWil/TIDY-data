@@ -49,3 +49,11 @@
 > names(xtotal) <- sub(" $", "", names(xtotal))
 > names(xtotal) <- gsub("  "," ", names(xtotal))
 > names(xtotal)
+ 
+> ## Question 5
+
+> Average <- xtotal  %>% group_by(activity, subject) %>% 
++   summarise_all(funs(mean))
+
+
+> write.table(Average, "tidydata.txt", row.name=FALSE)
